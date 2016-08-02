@@ -1,3 +1,5 @@
+* This is an image of [**ndmg*](http://m2g.io) which can be used for DWI connectome estimation. Please see their documentation for more details. *
+
 ### Docker Instructions
 
 The [bids/ndmg](https://hub.docker.com/r/bids/ndmg/) Docker container enables users to run end-to-end connectome estimation on structural MRI right from container launch. The pipeline requires that data be organized in accordance with the [BIDS](http://bids.neuroimaging.io) spec. If the data you wish to process is available on S3 you simply need to provide your s3 credentials at build time and the pipeline will auto-retrieve your data for processing.
