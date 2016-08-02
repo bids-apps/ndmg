@@ -1,4 +1,4 @@
-* This is an image of [**ndmg*](http://m2g.io) which can be used for DWI connectome estimation. Please see their documentation for more details. *
+This is an image of [**ndmg*](http://m2g.io) which can be used for DWI connectome estimation. Please see their documentation for more details.
 
 ### Docker Instructions
 
