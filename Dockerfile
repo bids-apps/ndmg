@@ -28,7 +28,6 @@ RUN printf "[default]\naws_access_key_id = `tail -n 1 /credentials.csv | cut -d'
 RUN mv /.aws/  ${HOME} && rm /credentials.csv
 
 #HPC
-RUN mkdir /scratch
-RUN mkdir /local-scratch
+RUN mkdir /scratch /local-scratch /projects
 
 ENTRYPOINT ["ndmg_bids"]
