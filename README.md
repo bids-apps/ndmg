@@ -5,7 +5,7 @@ Please read the official [**ndmg**](http://m2g.io) docs.
 Experiencing problems? Please open an [issue](http://github.com/neurodata/ndmg/issues/new) and explain what's happening so we can help.
 
 ### Acknowledgement
-When using this pipeline, please acknowledge us with the citations in the attached [bibtex](./ndmg.bib) file.
+When using this pipeline, please acknowledge us with the citations in the attached [bibtex](https://raw.githubusercontent.com/BIDS-Apps/ndmg/master/ndmg.bib) file.
 
 
 ### Instructions
