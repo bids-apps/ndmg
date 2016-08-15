@@ -22,11 +22,9 @@ ENV FSLCLUSTER_MAILOPTS="n"
 ENV LD_LIBRARY_PATH=/usr/lib/fsl/5.0${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 #S3
-RUN mkdir /.aws
-RUN printf "[default]\nregion = us-east-1" > /.aws/config
+RUN mkdir /.aws && printf "[default]\nregion = us-east-1" > /.aws/config
 ADD credentials.csv /credentials.csv
-RUN printf "[default]\naws_access_key_id = `tail -n 1 /credentials.csv | cut -d',' -f2`\naws_secret_access_key = `tail -n 1 /credentials.csv | cut -d',' -f3`" > /.aws/credentials
-RUN mv /.aws/  ${HOME} && rm /credentials.csv
+RUN printf "[default]\naws_access_key_id = `tail -n 1 /credentials.csv | cut -d',' -f2`\naws_secret_access_key = `tail -n 1 /credentials.csv | cut -d',' -f3`" > /.aws/credentials && mv /.aws/  ${HOME} && rm /credentials.csv
 
 #HPC
 RUN mkdir /scratch /local-scratch /projects /oasis
