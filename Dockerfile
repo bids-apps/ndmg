@@ -5,6 +5,9 @@ RUN easy_install pip
 RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3
 RUN pip install ndmg
 
+# Get atlases
+RUN mkdir /ndmg_atlases && wget -rnH --cut-dirs=3 --no-parent -P /ndmg_atlases http://openconnecto.me/mrdata/share/atlases/
+
 # FSL
 ENV FSLDIR=/usr/share/fsl/5.0
 ENV PATH=${FSLDIR}/bin:${PATH}
