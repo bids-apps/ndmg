@@ -3,10 +3,16 @@ MAINTAINER Greg Kiar <gkiar@jhu.edu>
 RUN apt-get update && apt-get install -y python-dev python-setuptools python-numpy python-scipy zlib1g-dev python-matplotlib python-nose fsl
 RUN easy_install pip
 RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3
-RUN pip install ndmg
+RUN pip install ndmg==0.0.29
 
 # Get atlases
 RUN mkdir /ndmg_atlases && wget -rnH --cut-dirs=3 --no-parent -P /ndmg_atlases http://openconnecto.me/mrdata/share/atlases/
+
+# bids-validator
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install -g bids-validator
 
 # FSL
 ENV FSLDIR=/usr/share/fsl/5.0
