@@ -1,4 +1,4 @@
-FROM dit4c/dit4c-container-fsl
+FROM bids/base_fsl
 MAINTAINER Greg Kiar <gkiar@jhu.edu>
 RUN apt-get update && apt-get install -y python-dev python-setuptools python-numpy python-scipy zlib1g-dev python-matplotlib python-nose fsl
 RUN easy_install pip
@@ -7,28 +7,6 @@ RUN pip install ndmg==0.0.31
 
 # Get atlases
 RUN mkdir /ndmg_atlases && wget -rnH --cut-dirs=3 --no-parent -P /ndmg_atlases http://openconnecto.me/mrdata/share/atlases/
-
-# bids-validator
-RUN apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
-RUN apt-get install -y nodejs
-RUN npm install -g bids-validator
-
-# FSL
-ENV FSLDIR=/usr/share/fsl/5.0
-ENV PATH=${FSLDIR}/bin:${PATH}
-ENV POSSUMDIR=$FSLDIR
-ENV PATH=/usr/lib/fsl/5.0:$PATH
-ENV FSLOUTPUTTYPE=NIFTI_GZ
-ENV FSLMULTIFILEQUIT=TRUE
-ENV FSLTCLSH=/usr/bin/tclsh
-ENV FSLWISH=/usr/bin/wish
-ENV FSLBROWSER=/etc/alternatives/x-www-browser
-ENV FSLLOCKDIR=
-ENV FSLMACHINELIST=
-ENV FSLREMOTECALL=
-ENV FSLCLUSTER_MAILOPTS="n"
-ENV LD_LIBRARY_PATH=/usr/lib/fsl/5.0${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 #S3
 RUN mkdir /.aws && printf "[default]\nregion = us-east-1" > /.aws/config
