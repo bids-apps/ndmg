@@ -35,4 +35,6 @@ RUN mkdir /.aws && printf "[default]\nregion = us-east-1" > /.aws/config
 ADD credentials.csv /credentials.csv
 RUN printf "[default]\naws_access_key_id = `tail -n 1 /credentials.csv | cut -d',' -f2`\naws_secret_access_key = `tail -n 1 /credentials.csv | cut -d',' -f3`" > /.aws/credentials && mv /.aws/  ${HOME} && rm /credentials.csv
 
+COPY version /version
+
 ENTRYPOINT ["ndmg_bids"]
