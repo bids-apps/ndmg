@@ -2,8 +2,9 @@ FROM bids/base_fsl
 MAINTAINER Greg Kiar <gkiar@jhu.edu>
 RUN apt-get update && apt-get install -y python-dev python-setuptools python-numpy python-scipy zlib1g-dev python-matplotlib python-nose fsl
 RUN easy_install pip
-RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3
-RUN pip install ndmg==0.0.32
+RUN apt-get install -y libpng-dev libfreetype6-dev pkg-config
+RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3 matplotlib==1.5.1
+RUN pip install ndmg==0.0.33
 
 # Get atlases
 RUN mkdir /ndmg_atlases && wget -rnH --cut-dirs=3 --no-parent -P /ndmg_atlases http://openconnecto.me/mrdata/share/atlases/
