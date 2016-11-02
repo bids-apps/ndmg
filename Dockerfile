@@ -1,4 +1,4 @@
-FROM bids/base_fsl
+FROM gkiar/fsl:5.0.9-3
 MAINTAINER Greg Kiar <gkiar@jhu.edu>
 RUN apt-get update && apt-get install -y python-dev python-setuptools python-numpy python-scipy zlib1g-dev python-matplotlib python-nose fsl
 RUN easy_install pip
