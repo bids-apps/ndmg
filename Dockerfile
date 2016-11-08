@@ -2,8 +2,8 @@ FROM bids/base_fsl:5.0.9-3
 MAINTAINER Greg Kiar <gkiar@jhu.edu>
 RUN apt-get update && apt-get install -y python-dev python-setuptools python-numpy python-scipy zlib1g-dev python-matplotlib python-nose fsl
 RUN easy_install pip
-RUN apt-get install -y libpng-dev libfreetype6-dev pkg-config, zip
-RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3 matplotlib==1.5.1, plotly
+RUN apt-get install -y libpng-dev libfreetype6-dev pkg-config zip
+RUN pip install cython numpy coveralls wget nibabel nilearn dipy sklearn networkx awscli boto3 matplotlib==1.5.1 plotly
 RUN pip install ndmg==0.0.36
 
 # Get atlases
