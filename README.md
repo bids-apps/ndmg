@@ -1,4 +1,4 @@
-##ndmg
+## ndmg
 
 NeuroData’s MR Graphs package, **ndmg** (pronounced “nutmeg”), is the successor of the MRCAP, MIGRAINE, and m2g pipelines. **ndmg** combines dMRI and sMRI data from a single subject to estimate a high-level connectome reliably and scalably.
 
@@ -41,7 +41,7 @@ Like a normal docker container, you can startup your container with a single lin
 
 I can start my container with:
 ```{bash}
-$ docker run -ti gkiar/ndmg
+$ docker run -ti bids/ndmg
 usage: ndmg_bids [-h]
                  [--participant_label PARTICIPANT_LABEL [PARTICIPANT_LABEL ...]]
                  [--bucket BUCKET] [--remote_path REMOTE_PATH]
@@ -51,7 +51,7 @@ ndmg_bids: error: too few arguments
 
 We should've noticed that I got an error back suggesting that I didn't properly provide information to our container. Let's try again, with the help flag:
 ```{bash}
-$ docker run -ti gkiar/ndmg:v4 -h
+$ docker run -ti bids/ndmg:v4 -h
 
 usage: ndmg_bids [-h]
                  [--participant_label PARTICIPANT_LABEL [PARTICIPANT_LABEL ...]]
@@ -91,5 +91,5 @@ optional arguments:
 
 Cool! That taught us some stuff. So now for the last unintuitive piece of instruction and then just echoing back commands I'm sure you could've figured out from here: in order to share data between our container and the rest of our machine, we need to mount a volume. Docker does this with the `-v` flag. Docker expects its input formatted as: `-v path/to/local/data:/path/in/container`. We'll do this when we launch our container, as well as give it a helpful name so we can locate it later on. Finally:
 ```{bash}
-docker run -ti --name ndmg_test -v ./data:${HOME}/data bids/ndmg ${HOME}/data/ ${HOME}/data/outputs participant -p 01 -b mybucket -r path/on/bucket/
+docker run -ti --name ndmg_test --rm -v ./data:${HOME}/data bids/ndmg ${HOME}/data/ ${HOME}/data/outputs participant --participant_label 01 -b mybucket -r path/on/bucket/
 ```
