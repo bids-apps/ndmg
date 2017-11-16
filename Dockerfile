@@ -17,4 +17,8 @@ RUN printf "[default]\naws_access_key_id = `tail -n 1 /credentials.csv | cut -d'
 COPY version /version
 ENV MPLCONFIGDIR /tmp/matplotlib
 
+RUN mkdir /data &&\
+    chmod -R 777 /data
+RUN ldconfig
+
 ENTRYPOINT ["ndmg_bids"]
