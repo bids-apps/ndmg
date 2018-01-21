@@ -1,0 +1,21 @@
+Bootstrap: docker
+From: bids/ndmg
+
+%help
+You are in the BIDS-ndmg container. To see help run
+singularity run TheEtkinLab-ndmg.simg -h
+
+%runscript
+    echo "Running ndmg!"
+    echo "Arguments received: $*"
+    exec ndmg_bids "$@"
+
+%labels
+Author mnarayan@users.noreply.github.com
+Build-date 20/01/2018
+Vendor Ubuntu
+Version v0.0.50
+
+%post
+    echo "Hello from inside the ndmg container"
+    echo "Install additional software here"
