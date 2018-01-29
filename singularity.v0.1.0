@@ -14,7 +14,7 @@ singularity run TheEtkinLab-ndmg.simg -h
 Author mnarayan@users.noreply.github.com
 Build-date 20/01/2018
 Vendor Ubuntu
-Version v0.0.50
+Version v0.1.0
 
 %post
     echo "Hello from inside the ndmg container"
