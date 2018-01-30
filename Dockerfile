@@ -19,5 +19,6 @@ ENV PYTHONWARNINGS ignore
 RUN mkdir /data &&\
     chmod -R 777 /data
 RUN ldconfig
+RUN chmod -R 777 /usr/local/bin/ndmg_bids
 
 ENTRYPOINT ["ndmg_bids"]
