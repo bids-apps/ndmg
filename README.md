@@ -3,14 +3,16 @@
 NeuroData’s MR Graphs package, **ndmg** (pronounced “nutmeg”), is the successor of the MRCAP, MIGRAINE, and m2g pipelines. **ndmg** combines dMRI and sMRI data from a single subject to estimate a high-level connectome reliably and scalably.
 
 ### Documentation
+
 Please read the official [**ndmg**](http://m2g.io) docs.
 
 ### Error Reporting
+
 Experiencing problems? Please open an [issue](http://github.com/neurodata/ndmg/issues/new) and explain what's happening so we can help.
 
 ### Acknowledgement
-When using this pipeline, please acknowledge us with the citations in the attached [bibtex](https://raw.githubusercontent.com/BIDS-Apps/ndmg/master/ndmg.bib) file.
 
+When using this pipeline, please acknowledge us with the citations in the attached [bibtex](https://raw.githubusercontent.com/BIDS-Apps/ndmg/master/ndmg.bib) file.
 
 ### Instructions
 
@@ -89,7 +91,9 @@ optional arguments:
                         machine.
 ```
 
-Cool! That taught us some stuff. So now for the last unintuitive piece of instruction and then just echoing back commands I'm sure you could've figured out from here: in order to share data between our container and the rest of our machine, we need to mount a volume. Docker does this with the `-v` flag. Docker expects its input formatted as: `-v path/to/local/data:/path/in/container`. We'll do this when we launch our container, as well as give it a helpful name so we can locate it later on. Finally:
+Cool! That taught us some stuff. So now for the last unintuitive piece of instruction and then just echoing back commands I'm sure you could've figured out from here: in order to share data between our container and the rest of our machine, we need to mount a volume. Docker does this with the `-v` flag. Docker expects its input formatted as: `-v path/to/local/data:/path/in/container`. We'll do this when we launch our container, as well as give it a helpful name so we can locate it later on. 
+
+Finally:
 ```{bash}
 docker run -ti --name ndmg_test --rm -v ./data:${HOME}/data bids/ndmg ${HOME}/data/ ${HOME}/data/outputs participant --participant_label 01 -b mybucket -r path/on/bucket/
 ```
