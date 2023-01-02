@@ -91,7 +91,7 @@ optional arguments:
                         machine.
 ```
 
-Cool! That taught us some stuff. So now for the last unintuitive piece of instruction and then just echoing back commands I'm sure you could've figured out from here: in order to share data between our container and the rest of our machine, we need to mount a volume. Docker does this with the `-v` flag. Docker expects its input formatted as: `-v path/to/local/data:/path/in/container`. We'll do this when we launch our container, as well as give it a helpful name so we can locate it later on. 
+Cool! That taught us some stuff. So now for the last unintuitive piece of instruction and then just echoing back commands I'm sure you could've figured out from here: in order to share data between our container and the rest of our machine, we need to mount a volume. Docker does this with the `-v` flag. Docker expects its input formatted as: `-v path/to/local/data:/path/in/container`. We'll do this when we launch our container, as well as give it a helpful name so we can locate it later on.
 
 Finally:
 ```{bash}
