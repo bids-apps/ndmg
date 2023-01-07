@@ -68,6 +68,8 @@ workflows:
           tags:
             only: /.*/
     - deploy:
+        context:
+        - dockerhub
         requires:
         - build
         filters:
