@@ -30,8 +30,13 @@ jobs:
     - name: print version
       run: |
         docker run -t --rm --read-only \
+        --tmpfs /tmp \
+        --tmpfs /var/tmp \
             bids/ndmg:latest --version
+
         docker run -t --rm --read-only \
+        --tmpfs /tmp \
+        --tmpfs /var/tmp \
             bids/ndmg:latest --help
 
     - name: get data
