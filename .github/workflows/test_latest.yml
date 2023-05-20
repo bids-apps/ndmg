@@ -3,7 +3,7 @@ name: test latest image
 
 on:
   push:
-    branches: ["*"]
+    branches: ['*']
   schedule:
   - cron: 0 0 1 * *
   workflow_dispatch:
